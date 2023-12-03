@@ -1,0 +1,202 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{graphicx} % Required for inserting images
+\newcommand{\ltf}[1]{\lim_{{#1} \to \infty}}
+\newcommand{\nltf}[1]{\lim_{{#1} \to -\infty}}
+\title{13. Derivatives of logarithmic functions}
+\author{Damiam Alfaro}
+\date{December 2, 2023} % a comment, do the dates
+
+\begin{document}
+\maketitle
+\section{First Part}
+\textbf{Goal}: give a meaning to irrational exponents limits. Define the base of natural exponential and logarithmic functions. Find the derivative of logarithmic functions.\\
+\newline
+\textbf{Motivation}: Understand meaningfully how an exponential function is built. Understand the behavior of exponential function and their role in applications.\\
+\newline
+The formula of an \underline{exponential function} is
+\[f(x) = b^x \] where \(b > 0, b = 1\) has to exist.\\
+\newline
+However, when the exponential \textbf{x} is an irrational number--a number that goes on forever such as \(\sqrt{2}\)--we approximate an irrational number through rational approximation using limits:
+\[b^x = lim_{r \to x} b^r\] where r = rational\\
+\newline
+Some \underline{Properties of Exponents} below:
+\[a^{x+y} = a^xa^y\]
+\[a^{x-y} = \frac{a^x}{a^y}\]
+\[(a^{x})^{y} = a^{xy}\]
+\[(ab)^{x} = a^{x}b^{x}\]
+\newline
+One has to keep in mind that Domains are all real numbers except those that cause trouble, i.e. Division by 0 or trying to take \(\sqrt{-n}\). \\
+\newline
+\textit{Example}\\
+Find the domain and the derivative of:
+\[f(x) = \sqrt{1-6^{x}}\]
+We can find either of those first, in this case, let's find the domain first; we cannot take the \(\sqrt{-n}\), therefore in order to avoid that in our example; we know that Domain:
+\[1-6^x \geq 0\]
+\[1 \geq 6^x\]
+\[6^0=1 \Rightarrow log_{6} 1 \geq log_{6} 6^x\]
+\[0 \geq x\]
+Now we have to find the derivative, which we will do by the chain rule:
+\[f(x) = \sqrt{1-6^{x}}\]
+\[f'(x) = (\frac{1}{2\sqrt{1-6^{x}}})(b)\]
+\[b = \frac{d}{dx}(1-6^{x})\]
+\[b = \frac{d}{dx}(6^x)\]
+\[b = \frac{d}{dx}((e^{ln6})^x)\]
+\[b = \frac{d}{dx}(e^{xln6})\]
+\[b = e^{xln6}ln(6)\]
+\[b = 6^{x}ln(6)\]
+\[f'(x) = (\frac{1}{2\sqrt{1-6^{x}}})(6^{x}ln(6))\]
+Here's other examples to find domains:
+\[(a)\frac{3}{8-2e^x}\]
+The denominator of this function cannot cause trouble, equal to 0
+\[8-2e^x \neq 0\]
+Now you can solve for x
+\[8 \neq 2e^x\]
+\[ln(4)\neq ln(e^x)\]
+What taking \(ln(e^x)\) does is that it puts x to the front of the equation
+\[ln(4)\neq (x)ln(e)\]
+\[ln(4) \neq (x)(1)\]
+Therefore, the domain is:
+\[(-\infty,ln(4)) \cup (ln(4),\infty)\]
+A second example is:
+\[(b) \sqrt{1-10^x}\]
+Although we don't have a fraction here-so domain cannot cause trouble by dividing by 0-we still have a \(\sqrt{n}\), which can cause trouble by getting the \(\sqrt{-n}\). Therefore we know that the domain has to be:
+\[1-10^t \geq 0\]
+We solve for t, which we end with:
+\[ln(1) \geq (t)(ln(10)\]
+We know that \(ln(1) = 0\) so:
+\[\frac{0}{ln(10)} \geq t\]
+\[0 \geq t\]
+Therefore the domain is: \((-\infty,0]\). The close bracket in included since 0 is \textbf{"bigger or equal} to 0".\\
+\newline
+When e is an exponent, like the following example, one treats \textbf{e} as any other constant, which at the end of the day it is a constant.
+\[f(x) = 14e^{\frac{x}{2}} - 5x^e\]
+Here we take the derivatives separately
+\[(a) = 14e^{\frac{x}{2}}\]
+Using the \textbf{chain rule}, treating \(e^{x/2}\) as the function of \(f(u)\) you get:
+\[(a)' = 7e^{x/2}\]
+Now for the other part:
+\[(b) = -5x^e\]
+Here, using the simple \textbf{power rule} we get that \(x^e = ex^{e-1}\) and \(e-1\) is still a constant, therefore:
+\[(b)' = -5ex^{e-1}\]
+So:
+\[f'(x) = 7e^{\frac{x}{2}}-5ex^{e-1}\]
+If you plug \(f'(1)\) here, you will find that \((b'(1)) = -5e(1)^{e-1}\) which is \(-5e\) since \(1\) to the power of any constant is still \(1\).
+
+\section{Second Part}
+\textbf{Goal}: Quick graphing of shifted exponential functions. Finding limits at infinity of functions containing exponential.\\
+\newline
+\textbf{Motivation}: Many real-life applications involve exponential growth or decay.\\
+\newline
+One thing to keep in mind is that when it comes of \(y=b^x\) and \(0<b<1\):
+\[lim_{x \to \infty}b^x = 0\]
+\[lim_{x \to-\infty}b^x = \infty\]
+When it comes of \(b>1\):
+\[lim_{x \to \infty}b^x = \infty\]
+\[lim_{x \to-\infty}b^x = 0\]
+We will be asked go find limits at \(\pm \infty\) of functions with exponentials, although scary, it shouldn't be.\\
+\newline
+Find the \(\pm \infty\) limits of the function:
+\[y=4^{-x}+2\]
+Here since we aren't doing derivatives, we can exclude the \(+2\) for a moment, and just focus on \(4^{-x}\)
+\[y=4^{-x}= \left(\frac{1}{4}\right)^x\]
+As you might know, \(0 < \frac{1}{4} < 1\), therefore \(0<b<1\) applies here.
+\[lim_{x \to \infty} 4^{-x} = 0\]
+\[lim_{x \to -\infty} 4^{-x} = \infty\]
+However, remember the \(+2\) in the initial given equation? you add that to the result such that:
+\[lim_{x \to \infty} 4^{-x}+2 = 2\]
+\[lim_{x \to -\infty} 4^{-x}+2 = \infty\]
+Another example where \(b>1\) is the following:
+\[lim_{x \to \infty} (1.057)^x\]
+See the resemblance of f(x) = \(b^x\) here? Take into account that \(1.057 > 1\), therefore we apply \(b>1\) gives us the following limits:
+\[lim_{x \to \infty} (1.057)^x = \infty\]
+\[lim_{x \to -\infty} (1.057)^x = 0\]
+There will be times where there will be limits for a quotient where there will be different exponentials to one integer in the numerator and denominator, here we acknowledge logic and exponential rules and we will be safe, take for instance:
+\[\ltf{x} \frac{6+5^{x+4}}{6-5^{x-3}}\]
+This limit is equal to \(\infty\), this is why we have to break it down. We know that \(5^{x+4} = 5^{x}5^{4}\) per the rules of exponentiation.
+\[\ltf{x} \frac{6+5^x5^4}{6-5^x5^3}\]
+Now, how do we get rid of the \(5^x\) in both the numerator and denominator? We divide each by \(\frac{1}{5^x}\), resulting in:
+\[\ltf{x} \frac{\frac{6}{5^x}+(1)(5^4)}{\frac{6}{5^x}-(1)(5^{-3})}\]
+Why didn't we applied \(\frac{1}{5^x}\) to the constants \(5^n\)? because they are a product, and \((5a)(\frac{1}{5}) = (5)(\frac{a}{5})\) which in this case, the \(a = \frac{5^x}{5^x}\) from the example above.
+\[\ltf{x} \frac{6}{5^x} = 0\]
+We apply that to the two instances of the example in the equation and we get:
+\[\frac{5^4}{-5^{-3}}\]
+Per exponential rule \(a^{x-y}=\frac{a^x}{a^y}\) we know that:
+\[\frac{5^4}{-5^{-3}} = -5^{4-(-3)} = -5^7\]
+Just remember that as:
+\[\nltf{x}e^x = 0\]
+\section{Third Part}
+\textbf{Goal}: Understand why the derivative of the natural logarithmic function is the reciprocal function\\
+\newline
+\textbf{Motivation}: Many mathematical and physical applications use logarithmic functions\\
+\newline
+Consider the pair of functions:
+\[f(x) = e^x\]
+\[g(x) = ln^x\]
+They are inverses of each other so that a composition of those two will yield the input due to undoing the other function:
+\[g(f(x)) = lne^x = x\]
+\[f(g(x)) = e^{lnx}\]
+\[f'(x) = e^x\]
+We know that \(g = f^-1\) (the inverse), which in this case to get its derivative is:
+\[g'(x) = (f^{-1})'(x) = \frac{1}{f'(f^{-1}(x)}) = \frac{1}{e^{f^{-1}(x)}} = \frac{1}{e^{lnx}} = \frac{1}{x}\]
+\[\frac{d}{dx}(lnx) = \frac{1}{x}\]
+Another crucial function is the following:
+\[\frac{d}{dx}(log_{a}x) = \frac{1}{x \ln{a}}\]
+And:
+\[\frac{d}{dx}(a^x) = a^x\ln{a}\]
+Three crucial points to keep in mind:
+\begin{enumerate}
+    \item \(\ln{10x} = \ln{10} + \ln{x}\)
+    \item \(s(r)=\ln{(4-r)^7}\), to get the derivative here we use chain rule upon the three functions \(f(r)=4-r\),\(g(r)=r^7\),\(h(r)=\ln{r}\) which gives \(s'(r)=h'(g \circ f(x))g'(f(r))f'(r)\) which equals
+    \[s'(r)=\frac{1}{(4-r)^7}7(4-r)^{6}(-1)\]
+    \item Another point to take into account is that we can avoid all the steps of the chain rule by applying exponential rules. If we take the derivative of the entire function \((s(r))'\):
+    \[(s(r))'=(7\ln{(4-r)})\]
+    Now we have only one chain rule, not two:
+    \[s(r)=\ln{(4-r)^7}\]
+    \[(s(r))'=7(\ln{4-r})\]
+    \[(s(r))'=(7)\frac{1}{4-r}(-1)\]
+    \[(s(r))'=-\frac{7}{4-r}\]
+\end{enumerate}
+Lastly, a property of logarithms to simplify them is:
+\[log_{10}(t) = \frac{\ln{t}}{\ln{10}}\]
+
+\section{Fourth Part}
+\textbf{Goal}: Understand why the derivative of the natural logarithm of a function is the ratio of the derivative of that function to the function.\\
+\newline
+\textbf{Motivation}: Many mathematical and physical applications use logarithmic functions or products/quotients with many factors.\\
+\newline
+When we have:
+\[s(u)=\ln{f(u)}\]
+\[s'(u)=\frac{f'(u)}{f(u)}\]
+And we can use this formula to solve for \(f'(u)\) by multiplying the right side and left side by \(f(u)\), leading to:
+\[f(u)\frac{d}{du}\ln{f(u)}=f'(u)\]
+The idea here is that if you want to \textit{differentiate} a function, you can turn that function into a product, that function times the derivative of the log of the function \(f(x)\frac{d}{dx}\ln{f(x)}\).\\
+\newline
+Why would we do that? Because properties of logarithmic functions can simplify complicated functions which have products and exponents.\\
+See \underline{Properties of Logarithmic Functions}:
+\[(a)\ln{xy}=\ln{x}+\ln{y}\]
+\[(b)\ln{\frac{x}{y}}=\ln{x}-\ln{y}\]
+\[(c)\ln{x^m}=m\ln{x}\]
+These properties can be used to reduce the amount of steps within other quotients and product functions.
+\[s(x)=\frac{(x-3)^4(2-x)^3}{(5-3x)^7}\]
+As you can see, we will be using the product, power, quotient, and chain rule here, which will take us quite some time, however, we can use \(\ln\) to reduce the amount of steps by multiplying each side by \(\ln\)
+\[\ln s(x)=\ln\frac{(x-3)^4(2-x)^3}{(5-3x)^7}\]
+Using property \((c)\) we can get the numerator:
+\[\ln(x-3)^4(2-x)^3 = 4\ln{x-3}+3\ln{2-x}\]
+Using property \((b)\) and\((x)\) we can get the denominator:
+\[\ln s(x) = 4\ln({x-3})+3\ln({2-x})-7\ln({5-3x})\]
+Now we take the derivative for both sides, jumping to the left side, remember that
+\[s'(u)=\frac{f'(u)}{f(u)}\]
+\[f(u)\frac{d}{du}\ln{f(u)}=f'(u)\]
+Therefore:
+\[(\ln{s(x)})' = \frac{s'(x)}{s(x)}\] 
+\[s'(x)=s(x)\frac{d}{du}[4\ln({x-3})+3\ln({2-x})-7\ln({5-3x})]\]
+Using the property of derivatives for logarithmic functions \(\frac{d}{dx}(\ln{x})=\frac{1}{x}\) we can get that:
+\[s'(x)=s(x)[\frac{4}{x-3}+\frac{3}{2-x}(-1)-\frac{7}{5-3x}(-3)]\]
+Before you ask, the \((-1)\) and \((-3)\) derive from the chain rule in their respective inner functions. Now we just substitute \(s(x)\) for the given function:
+\[s'(x)=\frac{(x-3)^4(2-x)^3}{(5-3x)^7}[\frac{4}{x-3}+\frac{3}{2-x}(-1)-\frac{7}{5-3x}(-3)]\]
+\newline
+Talent hits a target no one else can hit; Genius hits a target no one else can see.\\
+-\textit{Arthur Schopenhauer}
+
+\end{document}
