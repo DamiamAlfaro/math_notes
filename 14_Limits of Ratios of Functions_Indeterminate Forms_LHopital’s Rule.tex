@@ -1,0 +1,90 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{graphicx} % Required for inserting images
+\newcommand{\ltf}[1]{\lim_{{#1} \to \infty}}
+\newcommand{\nltf}[1]{\lim_{{#1} \to -\infty}}
+\title{14 Limits of Ratios of Functions; Indeterminate Forms; LHopital’s Rule}
+\author{Damiam Alfaro}
+\date{December 3rd 2023}
+
+\begin{document}
+\maketitle
+
+\section{First Part}
+\textbf{Goal}: Understanding when and why the limit of a ratio of two functions at a point is determinate or indeterminate.\\
+\newline
+\textbf{Motivation}: Many applications involve ratios of functions whose limit one needs to determine.\\
+\newline
+Limits of ratios of functions for when \(\lim_{x \to a}f(x)=L\) and \(\lim_{x \to a}g(x)=M\), letting L and M be finite or infinite, then
+\[\lim_{x \to a}f(x)=L\]
+\[\lim_{x \to a}g(x)=M\]
+\[\lim_{x \to a}\frac{f(x)}{g(x)} = \frac{\lim_{x \to a}f(x)}{\lim_{x \to a}g(x)}\]
+\begin{enumerate}
+    \item \(\frac{L}{M}\), if L and M are finite and M \(\neq 0\)
+    \item \(+\infty\), if L \(= +\infty\) and \(M > 0\) or \(L=-\infty\) and \(M <0\)
+    \item \(-\infty\), if L \(= -\infty\) and \(M > 0\) or \(L=+\infty\) and \(M <0\)
+    \item 0, if L is finite and \(M = +\infty\) or \(M=-\infty\)
+    \item All these are determinate forms
+\end{enumerate}
+Take the case of \((b)\) for example:
+\[\lim_{x \to a}f(x)=L\]
+\[\lim_{x \to a}g(x)=M\]
+b. \(+\infty\) if L \(= +\infty\) and \(M > 0\) or \(L=-\infty\) and \(M <0\)\\
+\newline
+Take for example:
+\[f(x) = \frac{1}{(x-1)^2}\]
+\[g(x) = sinx\]
+\[a = 1\]
+Then
+\[\lim_{x \to a}\frac{1}{(x-1)^2}=+\infty\]
+Why is the result of the equation above \(\infty\)? Because we consider reciprocals of very small positive numbers, taking the reciprocal of a number approaching 0 results in a value that goes to positive infinity.\\
+\newline
+\[\lim_{x \to a}\sin{x}=\sin{1} >0\]
+\[\lim_{x \to 1}\frac{f(x)}{g(x)}=\lim_{x \to 1}\frac{\frac{1}{(x-1)^2}}{\sin{x}}=\lim_{x \to 1}\frac{1}{\sin{x}(x-1)^2}=+\infty\]
+Which concludes in \((b)\)
+\(+\infty\) if L \(= +\infty\) and \(M > 0\) or \(L=-\infty\) and \(M <0\)
+\[\frac{+\infty}{\sin{1}}\]
+
+\section{Second Part}
+\textbf{Goal}: Understanding that when the limit of a ratio of two functions at a point is indeterminate, it may or may not exist.\\
+\newline
+\textbf{Motivation}: Many applications involve ratios of functions whose limit may or may not exist.\\
+\newline
+There are other several other possibilities for limits of ratios of functions, the ratio of limits exists in a generalized sense for determinate forms, but it may or may not exist for indeterminate forms. Again, when \(\lim_{x \to a}f(x)=L\) and \(\lim_{x \to a}g(x)=M\), letting L and M be finite or infinite, then:
+\[\lim_{x \to a}f(x)=L\]
+\[\lim_{x \to a}g(x)=M\]
+\[\lim_{x \to a}\frac{f(x)}{g(x)} = \frac{\lim_{x \to a}f(x)}{\lim_{x \to a}g(x)}\]
+\begin{enumerate}
+    \item \(L = M = 0\)
+    \item \(L = \pm \infty\) and \(M = \pm \infty\)
+    \item \(L \neq 0\) and \(M=0\)
+\end{enumerate}
+These are called indeterminate forms, in all three cases the limit may or may not exist\\
+\newline
+The first two, \(\frac{0}{0}\) and \(\frac{\infty}{\infty}\) fall into L'Hopital's Rule\\
+\newline
+In the third case, the \(\lim_{x \to a}\frac{f(x)}{g(x)}\) does not exist unless \(g(x) \neq 0\) for all \(x\) near \(a\). For example:
+
+\section{Third Part - L'Hôpital's Rule}
+\textbf{Goal}: Understanding when and why the limit of a ratio of two functions at a point is equal to the limit of the ratio of their derivatives.
+\textbf{Motivation}: Some applications involve ratios of functions that may both approach zero or infinity at the same time, or other indeterminate forms.\\
+\newline
+When it comes to indeterminate forms of type \(\frac{0}{0}\) and \(\frac{\infty}{\infty}\), the theorem applies if:
+\begin{enumerate}
+    \item \(f\) and \(g\) differentiable for all inputs \(x\) near \(a\)
+    \item \(\lim_{x \to a} f(x)\) and \(lim_{x \to a} g(x)\) exist and are both \(\infty\) or both \(0\)
+    \item \(\lim_{x \to a}\frac{f'(x)}{g'(x)}\) exist, then \(\lim_{x \to a}\frac{f(x)}{g(x)} = \lim_{x \to a}\frac{f'(x)}{g'(x)}\) 
+\end{enumerate}
+\(f'\) and \(g'\) have to be continuous near given number and the limit of \(\frac{f'}{g'}\) has to exist.\\
+\newline
+\textit{To be Continued...}
+
+
+
+
+
+
+
+
+ 
+\end{document}
