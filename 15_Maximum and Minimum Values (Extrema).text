@@ -1,0 +1,98 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17} % or any latest version you have
+\usepackage{graphicx} % Required for inserting images\documentclass{article}
+
+\title{15 Maximum and Minimum Values (Extrema)}
+\author{Damiam Alfaro}
+\date{December 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Maximum and Minimum Values Part A}
+\textbf{Motivation}: Optimization problems appear in many applicatons; their solution usually hinges upon finding extreme values of functions.\\
+\newline
+\textbf{Goal}: Understand how extreme values of functions on closed intervals occur either at the endpoints or at critical numbers.\\
+\newline
+
+\begin{tikzpicture}
+\begin{axis}[
+    title={Example of Local Minima and Maxima},
+    xlabel={$x$},
+    ylabel={$y$},
+    xmin=-3, xmax=3,
+    ymin=-2, ymax=2,
+    grid=both,
+    axis lines=middle
+]
+
+% Add your function here
+\addplot[domain=-2.5:2.5, samples=100, smooth, blue] {x^3 - 3*x};
+
+% Add points for local minima and maxima
+\addplot[mark=*, red, mark options={scale=1}] coordinates {(-1,-2) (1,2)};
+
+\end{axis}
+\end{tikzpicture}\\
+\newline
+Basically, the local minimum is at \([-1,-2]\) and the local maximum is at \([1,2]\).\\
+\newline
+A function can have infinite local minimum and maximum, however, when the function is put within the boundaries of an interval, i.e. \([a,b]\), then it might only contain a few local maximum and minimum.\\
+\newline
+One can attempt the \underline{Fermat's Theorem}: If \(f\) has a local maximum or minimum at \(x=c\) then \(\frac{d}{dx} f(c)\) either doesn't exist or \(\frac{d}{dx} f(c) = 0\). For example:\\
+\newline
+\(f(x)=2x^3+3x^2-12x+2\) Defined for x in \([-3,2]\)\\
+\newline
+The only numbers \(c\) that will give you \(f'(c) = 0\) correspond to the local maximum and local minimum. Those are Maximum: \(c = -2\) and Minimum: \(c=1\).
+\[f'(x) = 6x^2+6x-12\]
+\[f'(x) = 6(-2)^2+6(-2)-12 = 0\]
+\[f'(x) = 6(1)^2+6(1)-12 = 0\]
+For a \(f\) function defined in \([a,b]\); c in \((a,b)\) is a \underline{critical number} of \(f\) if \(f'(c)=0\) or \(f'(c)\) does not exist. This means that a function can only have a local extreme value at a critical number.\\
+\newline
+If they give you a function \(f\) that is defined in \(-\infty, \infty\), i.e. all real numbers, all scenarious, you will need to find where \(c = 0\) or undefined by solving for \(x\) for the given function, this is useful to calculate critical points in operation research:
+\[f(x) = (x-4)^{\frac{2}{3}}; (-\infty,\infty)\]
+Solve for \(x\) using the chain rule in this case:
+\[f'(x) = \frac{2}{(3)(\sqrt[3]{x-4})}\]
+As you can see, the function will be \textit{undefined} if we input \(f'(4)\). Therefore we only have one critical number here: \(c = 4\). However, there will be times where a \(f'(c) = 0\) doesn't mean a critical point, but an inflection point:
+\[f(x) = x^3\]
+\[f'(x) = 3x^2\]
+\[f'(0) = 0\]
+Happy right? Wrong. Look at its graph.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xlabel = \(x\),
+    ylabel = {\(x^3\)},
+    xmin=-2, xmax=2,
+    ymin=-8, ymax=8,
+]
+% Plotting the function x^3
+\addplot [
+    domain=-2:2, 
+    samples=100, 
+    color=red,
+] {x^3};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+It just stops momentarily but then keeps increasing exponentially, be careful.\\
+\newline
+A function can have both; a quotient with \(f'(c) = 0\) at either the numerator or denominator and viceversa, and the same for \(f'(c) =\) undefined.\\
+\newline
+\[f(x) = 6x^{\frac{2}{3}}+x^{\frac{5}{x}}\]
+\[f'(x) = \frac{4+\frac{5}{3}x}{x^{\frac{1}{3}}}\]
+On the top, the critical number is \(x=-\frac{12}{5}\) if you solve for \(0\), giving \(f'(c) = 0\). And on the bottom the critical number is \(x=0\), giving \(f'(c)=\) undefined.
+
+
+
+
+
+
+
+
+
+\end{document}
