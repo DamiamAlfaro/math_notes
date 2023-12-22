@@ -1,0 +1,119 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{graphicx} % Required for inserting
+\graphicspath{{images/}} %configuring the graphicx package
+
+\title{17 Derivatives and The Shape of Graphs}
+\author{Damiam Alfaro}
+\date{December 20 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{First Part: Derivatives and the Shape of Graph}
+\textbf{Motivation}: The shape of the graph of a function gives a lot of information about the function, such as where it increases and its long term behavior.\\
+\newline
+\textbf{Goal}: Understand how to use calculus-derived information about a function to produce an accurate graph.\\
+\newline
+We are interested in the sign of the derivative; given a function, we want to know where its derivative is positive, negative, or zero, therefore we want to know where its zeros are (and, in general, where it is infinite too). The function cannot change sign except at these values of \(x\). It has constant sign in each of the intervals derived from, i.e. the values where the derivative is \(0\) or \(\infty\).\\
+\newline
+Take for instance:
+\[f(x)=2x^3+3x^2-36x+1\]
+\[f'(x)=6x^2+6x-36\]
+\[f'(x)=6(x+3)(x-2)\]
+Here, we can see thanks to factorization that \(f'\) equal to \(0\) when \(x=-3\) and \(x=2\), \(6\) stays positive and unchanged. With this we know that the derivative cannot change sign except at the values of \(x\). It has constant sign in each of the intervals given by the critical points:
+\[(-\infty,-3), (-3,2), (2,+\infty)\]
+As you can see, we can visualize these in our imagination by seeing that the derivative does not change within these intervals. We also know that
+\begin{enumerate}
+    \item \(6\), positive always
+    \item \((x+3)\) is positive if \(x > -3\), negative if \(x < -3\)
+    \item \((x-2)\) is positive if \(x > 2\), negative if \(x < 2\)
+\end{enumerate}
+Hence:\\
+\newline
+1. \(f'(x)=6(x+3)(x-2)\) in \((-\infty,-3)\) equals \([(+)(-)(-)] = f' > 0\) in \((-\infty,-3)\).\\
+\newline
+Why? because \(6\) is positive, \((x+3) < 0 \) because since we are in interval \((-\infty,-3)\), we are using all numbers within that range, which are negative.\\
+\newline
+Lastly, \((x-2)\) is also negative.
+2. \(f'(x)=6(x+3)(x-2)\) in \((-3,2)\) equals \([(+)(+)(-)]\).
+3. \(f'(x)=6(x+3)(x-2)\) in \((2,\infty)\) equals \([(+)(+)(+)]\).\\
+\newline
+We have three different fluctuations:\\
+\newline
+\begin{center}
+    \includegraphics[scale=0.65]{math265_17_1.png}
+\end{center}
+They will ask you to \underline{find the sign of a derivative} at the point found, where \(f' = 0\), to do so we just plug in a value less than the point and a value more than the point within the derivative, then we find its result as positive or negative. \\
+\newline
+It is important to note that you can also find the local(s) maxima and local(s) minima.
+
+\section{Second Part: Concavity}
+\textbf{Motivation}: The shape of a graph gives a lot of information about the function, such as where it increases and its long term behavior.\\
+\newline
+\textbf{Goal}: Understand how to use calculus-derived information about a function to produce an accurate graph.\\
+\newline
+To know the direction of concavity of a graph there are two ways to do it: 1) visually, by observing its tangent lines, if they are on top of the graph, the graph is "cupped downwards", or concave down. If they are on the bottom, the graph is "cupped upwards", or concave up. 
+\begin{center}
+    \includegraphics[scale=0.65]{math265_17_2.png}
+\end{center}
+The second way is by finding it's second derivative \(f''(x)\).\\
+\newline
+\begin{enumerate}
+    \item If \(f''(x)>0\) for all \(x\) in an interval I, then the graph of \(f\) is concave upward on interval I.
+    \item If \(f''(x)<0\) for all \(x\) in an interval I, then the graph of \(f\) is concave downward on interval I.
+\end{enumerate}
+A point of continuity on a graph of a function at which the concavity changes is called \underline{inflection point}. For instance:
+\[f(x)=2x^3+3x^2-36x+1\]
+\[f'(x)=6x^2+6x-36\]
+\[f''(x)=12x+6\]
+As usual, we find where \(f''(x) = 0\), which in this case we have \(f''(x) = 0\) at \(x = -\frac{1}{2}\). With this information, we can find that at the left of \(-\frac{1}{2}\) is \(f''(x)<0\) or concave down, and to the right is \(f''(x)>0\) or concave up. The inflection point is \(-\frac{1}{2}\).\\
+\newline
+\underline{Second Derivative test}: Let \(f\) be continuous at \(c\):
+\begin{enumerate}
+    \item If \(f'(c)=0\) and \(f''(c)<0\), \(f\) has a local maximum at \(c\)
+    \item If \(f'(c)=0\) and \(f''(c)>0\), \(f\) has a local minium at \(c\)
+\end{enumerate}
+\begin{enumerate}
+    \item You can find where the initial function \(f(x)\) is increasing by looking at the graph of \(f'(x)\) on all positive values.
+    \item You can find where the initial function \(f(x)\) is concave down when its second derivative is \(f''(x)<0\), this occurs when the graph of \(f'(x)\) is decreasing.
+    \item A graph changes concavity at each local minimum and maximum.
+\end{enumerate}
+
+\section{Third Part: Curve Sketching Part 1}
+\[f(x)=2(x-4)^{2/3}+8\]
+a) First, you are instructed to find it's \underline{critical numbers}, to do so, you take \underline{first derivative}, and find where that derivative is 1) \(f'(x)=0\), 2) \(f'(x)=DNE\), and/or 3) \(f'(x)=\) infinite.
+\[f'(x)=\frac{4}{3}(x-4)^{-\frac{1}{3}} = \frac{4}{3} \frac{1}{(x-4)^\frac{1}{3}}\]
+Here we can see that \(x=4\) equals \(f'\) = DNE or infinite. Therefore \(x=4\) is a \textbf{critical value}\\
+\newline
+b) To find the largest intervals where \(f\) is increasing and decreasing we use the critical values, we want to \underline{check the sign of first derivative} to the left and rigth of the critical value.\\
+\newline
+You can do so by trying out numbers to the right and left of the critical value. In this case:
+\begin{center}
+    \(f'\) is increasing on \((4,\infty)\)\\
+    \(f'\) is decreasing on \((-\infty, 4)\)
+\end{center}
+c) List the abscissas (input of x) of all local maximum and minimum values; given by the response at b):
+\begin{center}
+    Local minimum at \(x=4\)
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
