@@ -1,5 +1,6 @@
 \documentclass[12pt, letterpaper]{article}
 \usepackage{amsmath}
+\usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.17}
 \usepackage{graphicx} % Required for inserting
@@ -16,7 +17,7 @@
 \section{First Part: Derivatives and the Shape of Graph}
 \textbf{Motivation}: The shape of the graph of a function gives a lot of information about the function, such as where it increases and its long term behavior.\\
 \newline
-\textbf{Goal}: Understand how to use calculus-derived information about a function to produce an accurate graph.\\
+\textbf{Goal}: Understand how zo use calculus-derived information about a function to produce an accurate graph.\\
 \newline
 We are interested in the sign of the derivative; given a function, we want to know where its derivative is positive, negative, or zero, therefore we want to know where its zeros are (and, in general, where it is infinite too). The function cannot change sign except at these values of \(x\). It has constant sign in each of the intervals derived from, i.e. the values where the derivative is \(0\) or \(\infty\).\\
 \newline
@@ -100,10 +101,46 @@ c) List the abscissas (input of x) of all local maximum and minimum values; give
 \begin{center}
     Local minimum at \(x=4\)
 \end{center}
-
-
-
-
+Another example is: 
+\[f(x)=(8-5x)e^x\]
+\textbf{a)} Find all critical numbers, CV:
+\[f'(x)=(3-5x)e^x\]
+\[0=(3-5x)e^x\]
+We have a product here, \(e^x\) cannot be zero, but the second product \((3-5x)\) can.
+\[0=3-5x\]
+\[-3=-5x\]
+\[\frac{3}{5}=x\]
+\textbf{b)} Now we want to find the intervals where the function is increasing and decreasing by checking the sign of the first derivative in each side, we can use a number line. You can do so by \underline{picking easy numbers, 1 or 0} within the numberline.\\
+\newline
+\begin{center}
+\begin{tikzpicture}
+    % Draw the number line
+    \draw (0,0) -- (5,0);
+    
+    % Add the ticks and labels
+    \foreach \x in {0,3,5}
+      \draw (\x,0.1) -- (\x,-0.1) node[below] {$\ifnum\x=0 0 \else\ifnum\x=5 1 \else\frac{3}{5}\fi\fi$};
+\end{tikzpicture}
+\end{center}
+\[f'(0)=(3-5(0))e^{0} = [+]\]
+\[f'(1)=(3-5(1))e^{1} = [-]\]
+Therefore we have a local maximum. The intervals are increasing: \((-\infty,\frac{3}{5})\) and decreasing at: \((\frac{3}{5},\infty)\).\\
+\newline
+\textbf{c)} To \underline{list the abscissas of all local maximum and minimum values}, we use the critical values.
+\[x = \frac{3}{5}\]
+\textbf{d)} to find the largest intervals where \(f\) is concave up and concave down, we take the \underline{second derivative}:
+\[f''(x)=e^x(-2-5x)\]
+Then we solve for x: \(e^x\) cannot be 0, so we exclude it and focus on the second product:
+\[0=-2-5x\]
+\[2=-5x\]
+\[-\frac{2}{5}=x\]
+Now we check the sign of the second derivative at the left and right side of the inflection point to find the intervals. Again, we use easy numbers such as 1 and 0.
+\[f''(0)=e^{0}(-2-5(0))=[-]\]
+\[f''(1)=e^{-1}(-2-5(-1))=[+]\]
+Therefore, \(f\) is concave up on \((-\infty,-\frac{2}{5})\) and concave down on \((-\frac{2}{5},\infty)\)\\
+\newline
+\textbf{e)} Lastly, list all abcsissas of all inflections points
+\[x=-\frac{2}{5}\]
 
 
 
