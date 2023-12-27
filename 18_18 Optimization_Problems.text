@@ -1,0 +1,92 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\pgfplotsset{compat=1.17}
+\usepackage{graphicx} % Required for inserting
+\graphicspath{{images/}} %configuring the graphicx package
+
+\title{18 Optimization Problems}
+\author{Damiam Alfaro}
+\date{December 26 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{First Part: Optimization}
+\textbf{Motivation}: Optimization problems appear in many applications; their solution usually depends upon \textit{finding extreme values of functions}.\\
+\newline
+\textbf{Goal}: Build models for real-life applications that require finding an extreme value of the model function, and finding it.\\
+\newline
+To find a \textbf{maximum} of something, it usually means \textbf{absolute maximum}. When it comes of maximizing, we want to find the derivative and find the absolute maximum by setting \(f'(x)=0\) and finding the critical values.\\
+\newline
+Optimization: what is the function we are trying to optimize? In the Optimization Problems we need to:
+\begin{center}
+\begin{enumerate}[label=(\alph*)]
+    \item Identify the objective function to maximize or minimize (global maximum and global minimum)
+    \item Assign variables and determine constraints, i.e. restrictions, given variables, "size should not go above n", "x cannot be 0", etc.
+    \item Create an algebraic representation of the objective function.
+    \item Find its critical numbers\\
+    First derivative then equal to zero\\
+    \(f'(x)=0\)
+    \item Determine the absolute extreme values in the domain: second derivative test:\\
+    If \(f'(c)=0\) and \(f''(c)<0\), \(f\) has a local maximum at \(c\)\\
+    If \(f'(c)=0\) and \(f''(c)>0\), \(f\) has a local minium at \(c\)
+\end{enumerate}
+\end{center}
+\textbf{E.g} An open box is constructed out of a 6-ft by 14-ft piece of cardboard. Squares of side of length \(x\) ft are cut out of each corner of the cardboard and the sides are folded up to create the box. Find the dimensions of the box that maximizes the volume.\\
+\newline
+\textbf{a)} Objective function: we want to maximize the volume, i.e. find its global maximum.\\
+\newline
+\textbf{b), d)} Determine variables: You can set the function to zero
+\begin{center}
+    l = \(14-2x\)\\
+    w = \(6-2x\)\\
+    h = \(x\)\\
+    \(0<x<3\)\\
+    volume = \(lwh = (14-2x)(6-2x)(x)\)\\
+    \(v(x) =84x-40x^2+4x^3=0\)\\
+    \(v'(x)=84-80x+12x^2\)
+    \(21-20x+3x^2=0\)\\
+    \(x=\frac{20\pm\sqrt{400-(4)(3)(21)}}{6}\)\\
+    \(x=\frac{20+\sqrt{148}}{6}\) = 1.3 = Permissible; \(0<x<3\)\\
+    \(x=\frac{20-\sqrt{148}}{6}\)= 5.36 = Not Permissible; \(0<x<3\)\\
+\end{center}
+\textbf{c), e)} Create an algebraic representation of the objective function: Which in this case we already have from the previous step.
+\[l = 14-2x = 14-2(1.3) = 11.4\]
+\[w = 6-2x = 6-2(1.3)=3.4\]
+The dimensions of the box with the max volume are: \((1.3)(11.4)(3.4) = 50.39\)ft.\\
+\newline
+Take another example: Find two positive numbers whose product is 169 and whose sum is a minimum:\\
+\newline
+\textbf{a)} Identify the objective function to: We need to find the value of two variables and a global minimum of its sum.\\
+\newline
+\textbf{b)} Assign variables: \(x=\) number 1, \(y=\) number 2.\\
+\newline
+\textbf{c)} Create an algebraic representation of the objective function: 
+\begin{center}
+    \(xy=169\) for the product.\\
+    Solve for one variable \(y=\frac{169}{x}\)\\
+    Equation of sum \(S(x)=x+\frac{169}{x}\)
+\end{center}
+\textbf{d)} Find its critical numbers: find it's first derivative and equal it to zero
+\[s(x)=x+\frac{169}{x}\]
+\[s'(x)=1-\frac{169}{x^2}\]
+\[0=1-\frac{169}{x^2}\]
+\[-1=-\frac{169}{x^2}\]
+\[(-x^2)(-1)=169\]
+\[x^2=169\]
+\[x=\sqrt{169}\]
+\[x=\pm13\]
+\textbf{e)} Determine the absolute extreme values in the domain: finding second derivative:
+\[s''(x)=\frac{338}{x^3} = [+]\]
+Therefore \textbf{If \(f'(c)=0\) and \(f''(c)>0\), \(f\) has a local minium at \(c\)} applies; \(c = 13\)
+
+He who is happy is fulfilling the purpose of being.
+-Aristotle, Aristotle on Desire
+
+
+
+\end{document}
