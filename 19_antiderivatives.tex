@@ -1,0 +1,100 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\pgfplotsset{compat=1.17}
+\usepackage{graphicx} % Required for inserting
+\graphicspath{{images/}} %configuring the graphicx package
+
+\title{19 Antiderivatives}
+\author{Damiam Alfaro}
+\date{December 27 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{First Part: Antiderivatives Part 1}
+\textbf{Goal}: Understand the concept of antiderivative and solve simple problems involving anti-erivatives.\\
+\newline
+\textbf{Motivation}: Understand meaningfully how antiderivatives solve the problem of determining a function with a known/prescribed instantaneous rate of change.\\
+\newline
+\textbf{Definition}: A function \(F(x)\) is called an \textit{antiderivative} of \(f(x)\) on an interval \(I\) if \(F'(x)=f(x)\) for all \(x\) in \(I\).
+\[f(x)=32x\]
+\[F(x)=16x^2+100\]
+\[F'(x)=f(x)\]
+\textbf{Theorem}: If \(F\) is an antiderivative of \(f\) on \(I\), then any antiderivative of \(f\) is of the form \(F+C\), where \(C\) is a constant.
+\[F(x)=16x^2+C\]
+Where C is any constant, \(F'(x)\) will have the same derivative \(f(x)=32x\). It is clear that two functions that differ by a constant have the same derivative since it will be zero. Therefore, the \textbf{theorem tells us} that any two functions with the same derivative differ by a constant.
+\[F(x)=16x^2+C\]
+All functions whose derivative is \(32x\) are in the family of \(F(x)=16x^2+C\). Take for example:\\
+\newline
+Find the general antiderivative of:
+\[\frac{dy}{dx}=6x^6-7x^2-3\]
+As you can see, the derivative has been taken for \(y\) already based on \(\frac{dy}{dx}\). We also know that:
+\[F'(x)=6x^6 = f(x)\]
+But what is \(F(x)\)?\\
+\newline
+\textbf{Damiam's Theorem} to find out: to find the general antiderivative of a function:
+\[\frac{dF}{dx}=ax^{n}+b\]
+\[F(x)=\frac{a}{n+1}x^{n+1}+bx+ C\]
+Also, this is not part of the theorem but if you happen to have \(F(n)=n_2\), you will need to solve for \(C\) after applying \textbf{Damiam's Theorem} to find \(F(x)\).\\
+\newline
+Take the following \textbf{Geometric Formulas} into account:
+\[f(x)=\sin{x} \to F(x) = -\cos{x}-C\]
+\[f(x)=\cos{x} \to F(x)=\sin{x}+C\]
+\[f(x)=\sec^2{x} \to F(x)=\tan{x}+C\]
+\[f(x)=\ln{x} \to F(x)=\frac{1}{x}+C\]
+\[f(x)=e^x \to F(x)=e^x+C\]
+\[f(x)=\sin{2x} \to F(x)=\sin^2{x}+C\]
+\[f(x)=ag(x)+bh(x) \to F(x) = dG(x)+bH(x)+C\]
+\[f(x)=\cos{\frac{x}{n}} \to F(x)=n\sin{\frac{x}{n}} \]
+\[f(x)=\sqrt{n} \to F(x)=\sqrt{nx}\]
+
+\section{Second Part: Antiderivatives Part 2}
+Take the following \textbf{Formulas of Antiderivatives} into account:
+\[f(x)=\frac{1}{x} \to F(x)=\ln{\lvert x \rvert}+C\]
+\[f(x)=\sec{x}\tan{x} \to F(x)=\sec{x}+C\]
+\[f(x)=\frac{1}{\sqrt{1-x^2}} \to F(x)=\sin^{-1}{x}+C=\arcsin{x}+C\]
+\[f(x)=-\frac{1}{\sqrt{1-x^2}} \to F(x)=\cos^{-1}{x}+C=\arccos{x}+C\]
+\[f(x)=\frac{1}{1+x^2} \to F(x)=\tan^{-1}{x}+C=\arctan{x}+C\]
+There will be times where one will need to \textbf{apply antiderivative several times} E.g. Find f(x) given:
+\begin{center}
+    Find \(f''(x)\) by taking antiderivative of \(f'''(x)\)
+\end{center}
+\[f'''(x)=e^x; f''(0)=4; f'(0)=4\]
+\[f'''(x)=e^x\]
+\[f''(x)=e^x+C\]
+\begin{center}
+    Solve for C using given \(f''(0)=4\)
+\end{center}
+\[4=e^0+C\]
+\[3=C\]
+\[f''(x)=e^x+3\]
+\begin{center}
+    Find \(f'(x)\) by taking antiderivative of \(f''(x)\)
+\end{center}
+\[f''(x)=e^x+3\]
+\[f'(x)=e^x+3x+C\]
+\begin{center}
+    Solve for C using given \(f'(0)=4\)
+\end{center}
+\[4=e^0+3(0)+C\]
+\[3=C\]
+\[f'(x)=e^x+3x+3\]
+\begin{center}
+    Find \(f(x)\) by taking antiderivative of \(f'(x)\)
+\end{center}
+\[f'(x)=e^x+3\]
+\[f(x)=e^x+\frac{3}{2}x^2+3x+C\]
+Therefore solving for \(f(x)\).
+\[\int f(x)dx\]
+\textbf{Indefinite integral}: \(\int f(x)dx\) is the notation for the general antiderivative of the function \(f\) with respect to \(x\).
+\[\int \cos{x}dx = \sin{x}+C\]
+
+
+It isn’s always the sharpest eyes that see things first.
+-Plato, The Republic
+
+\end{document}
