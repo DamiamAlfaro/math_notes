@@ -1,0 +1,127 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\pgfplotsset{compat=1.17}
+\usepackage{graphicx} % Required for inserting
+\graphicspath{{images/}} %configuring the graphicx package
+
+\title{20 Accumulation Areas and Distances}
+\author{Damiam Alfaro}
+\date{January 1 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{First Part: Areas as Riemann Sums}
+\textbf{Goal}: Approximate areas using many rectangles with small bases.\\
+\newline
+\textbf{Motivation}: Understand meaningfully how the areas of some regions may be approximated by summing the areas of rectangles based on the particular regions.\\
+\newline
+When using the \textbf{Right sum evaluation points} we use an asterisk * on the top-right side of each rectangle approached in the graph. E.g If we are approaching a graph with four rectangles from using right sum evaluations \([0,1]\) that means that:
+\begin{center}
+    \(x_1^*=\frac{1}{4}\)
+    \(x_2^*=\frac{2}{4}\)
+    \(x_3^*=\frac{3}{4}\)
+    \(x_4^*=\frac{4}{4}\)
+\end{center}
+Those are the lengths of the rectangles, to get the area we do \(A = hl\). From the aforementioned example, we are using the graph of \(f(x)=x^2\), therefore the height of each rectangle is:
+\begin{center}
+    Height = \(f(x_1^*)=f(\frac{1}{4})=\frac{1}{4}^2=\frac{1}{16}\)\\
+    Base = \(\Delta x = \frac{1}{4}\)\\
+    Area \(x_1^*=(\frac{1}{16})(\frac{1}{4})=\frac{1}{64}\)
+\end{center}
+The base \(\Delta x\) is found by finding the \textbf{difference between the right endpoint and left point of each interval (rectangle)}, however, in this case every base of every rectangle is the same.\\
+\newline
+For \(x_2^*\)
+\begin{center}
+    Height = \(f(x_2^*)=f(\frac{2}{4})=\frac{2}{4}^2=\frac{1}{4}\)\\
+    Base = \(\Delta x = \frac{1}{4}\)\\
+    Area \(x_2^*=(\frac{1}{4})(\frac{1}{4})=\frac{1}{16}\)
+\end{center}
+For \(x_3^*\)
+\begin{center}
+    Height = \(f(x_3^*)=f(\frac{3}{4})=\frac{3}{4}^2=\frac{9}{16}\)\\
+    Base = \(\Delta x = \frac{1}{4}\)\\
+    Area \(x_3^*=(\frac{9}{16})(\frac{1}{4})=\frac{9}{64}\)
+\end{center}
+Lastly, for \(x_4^*\)
+\begin{center}
+    Height = \(f(x_4^*)=f(\frac{4}{4})=\frac{4}{4}^2=1\)\\
+    Base = \(\Delta x = \frac{1}{4}\)\\
+    Area \(x_4^*=(1)(\frac{1}{4})=\frac{1}{4}\)
+\end{center}
+Therefore, we end up with the sum:
+\[R_4 = A_1+A_2+A_3+A_4\]
+\[R_4 = \frac{1}{64}+\frac{4}{64}+\frac{9}{64}+\frac{16}{64}\]
+\[R_4 = 0.46875\]
+Here \(R_4\) stands for \textbf{Right Riemann sum} with \(n=4\), four rectangles.
+\[R_n = \frac{1}{6} \left( 1+\frac{1}{n} \right)+\left( 2+\frac{1}{n} \right)\]
+Where \(n\) is the number of rectangles approached.\\
+\newline
+We can also use the \textbf{Left Points} yielding \textbf{Riemann Left Sum} where we will approach a graph using the left corner of each rectangle. Using the same example aforementioned we would have:
+\begin{center}
+    \(L_4 = \) Left Riemann Sum\\
+    \(x_1^*=\frac{0}{4}\)
+    \(x_2^*=\frac{1}{4}\)
+    \(x_3^*=\frac{2}{4}\)
+    \(x_4^*=\frac{3}{4}\)
+\end{center}
+This will give an underestimating result because all of the rectangles will be below the function. Therefore, we can also do \textbf{Midpoints} yielding \textbf{Riemann Midpoint Sum}
+\begin{center}
+    \(M_4 = \) Midpoint Riemann Sum\\
+    \(x_1^*=\frac{1}{8}\)
+    \(x_2^*=\frac{3}{8}\)
+    \(x_3^*=\frac{5}{8}\)
+    \(x_4^*=\frac{7}{8}\)
+\end{center}
+Basically you can do it in any random part of the interval (rectangle).
+\[x_1^* \in [x_0,x_1]\]
+\[x_2^* \in [x_1,x_2]\]
+\[x_3^* \in [x_2,x_3]\]
+\[x_4^* \in [x_3,x_4]\]
+Using summation notation we can write Riemann sums for arbitrary \(n\) as
+\[ \sum_{i=1}^{n} f(x_i^*)\Delta x \]
+And assuming \(f\) is non-negative and continuous on \([a,b]\)m the area \(A\) under the graph of \(f\) and above the x-axis for \(x\) from \(a\) to \(b\) is:
+\[ A = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*)\Delta x \]
+\[\Delta x=\frac{b-a}{n}\]
+\section{Second Part: Areas and Distances}
+\textbf{Motivation}: Frequent applicability of computing areas of oddly shaped figures. Computation of distance traveled with non-constant velocity.\\
+\newline
+\textbf{Goal}: Understand how to use Riemann Sums to approximate areas and distances.
+\[[-1,3]\]
+\[n=2\]
+\[q(v)=3v^3+5\]
+\[\Delta v = \frac{3-(-1)}{2}=2\]
+a) Left end point approximations
+\[2[-3+5(3^3)+5]=20\]
+b) Right end point approximations
+\[2[8+3(3^3)+5]=188\]
+c) Midpoint approximations
+\[2[5+3(2)^3+5]=68\]
+\textbf{Distances}: Another application of Riemann Sums is the computation of distances. We have a simple formula for distance when velocity is constant over a period of time. I.e a product
+\begin{center}
+    Distance = velocity x (change in time)\\
+    \(d=v_{constant}*\Delta t\)
+\end{center}
+Suppose an object moves at a constant velocity \(v_1\) for a period of time \(\Delta t_1\) and a constant velocity \(v_2\) over a different period of time \(\Delta t_2\), the total distance is:
+\[d = d_1 + d_2\]
+\[d = v_1 \Delta t_1 + v_2 \Delta t_2\]
+E.g. For example, if one drives at 30mph for 2 hours and then 75 mph for 3 hours, the total distance traveled is:
+\[d = d_1 + d_2\]
+\[d = v_1 \Delta t_1 + v_2 \Delta t_2\]
+\[d = (30)(2)+(75)(3) = 285\]
+If one then drove at 20mph for another hour, the total is
+\[d = d_1 + d_2 + d_3\]
+\[d = v_1 \Delta t_1 + v_2 \Delta t_2 + v_3 \Delta t_3\]
+\[d = (30)(2)+(75)(3)+(20)(1) = 305\]
+\newline
+\newline
+
+Math is the solution to all problems. The arduous task is to find and interpret real-life attributes into mathematical variables and form the equation. 
+-Damiam Alfaro, Fragments
+
+
+\end{document}
