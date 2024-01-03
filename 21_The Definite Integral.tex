@@ -1,0 +1,75 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\pgfplotsset{compat=1.17}
+\usepackage{graphicx} % Required for inserting
+\graphicspath{{images/}} %configuring the graphicx package
+
+\title{21 The Definite Integral}
+\author{Damiam Alfaro}
+\date{January 1 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{First Part: Accumulation and the Definite Integral Part 1}
+\textbf{Goal}: Introduce the concept and applications of accumulation quantities\\
+\newline
+\textbf{Motivation}: Understand meaningfully how the exact accumulation of a quantity may be approximated by piece wise linear functions called Riemann Sums.\\
+\newline
+How do we approximate accumulation?
+\[A(t)=\sum_{i=1}^{n-1}r_i\Delta t+r_n(t+1-n)\]
+\[r_n = r((n-1)\Delta t)\]
+\textbf{E.g.} Let \(A(t)\) represent the volume of a water tank \(t\) minutes after the tank starts to fill. The rate of change of the volume after \(t\) minutes, in liters per minute, is given by
+\[r(t)=0.5t^3-11t^2+76t\]
+\textbf{a)} Approximate the number of liters of water in the tank after 1 minute and 20 seconds after it started filling, using accumulation over time intervals of 40 sec.\\
+We need to approximate \(A \left( \frac{4}{3} \right)\) as \(\frac{4}{3}\) is 1 minute and 20 seconds, using \(\Delta t = \frac{2}{3}\) as \(\frac{2}{3}\) represents 40 second intervals.
+\[A \left( \frac{4}{3} \right) = A(0) + \sum_{n=0}^{1}(r_n\Delta t)\]
+We start with the initial quantity \(A(0) = 0\) as that is the beginning and we are approaching this problem using the smallest value of the flow over the interval, i.e. left endpoints.
+\[r_n = r(n\Delta t)\]
+\[r_0 = \left( 0 \cdot \frac{2}{3} \right)\]
+\[r_0 = r(0)=0.5(0)^3-11(0)^2+76(0)=0 \cdot \frac{2}{3}=0\]
+Then we do the next interval
+\[r_1 = \left(1 \cdot \frac{2}{3} \right) \]
+\[r_1 = \frac{2}{3}\]
+\[r_1 = r(1)=0.5\left( \frac{2}{3} \right)^3-11\left( \frac{2}{3} \right)^2+76\left( \frac{2}{3} \right)\]
+\[r_1 = 45.9259 \cdot \frac{2}{3} = 30.617\]
+\textbf{b)} Approximate the number of liters of water in the tank 7 minutes and 30 seconds after it started filling, using accumulation over time intervals of 80 seconds.
+\[A(7.5)=A(0)+ \sum_{n=0}^{4} r_n\Delta t\]
+\[\Delta t = \frac{4}{3}\]
+\[r_0 = 0\]
+\[r_1 = \left(1 \cdot \frac{4}{3} \right) = r(1)=0.5\left( \frac{4}{3} \right)^3-11\left( \frac{4}{3} \right)^2+76\left( \frac{4}{3} \right) = 82.963\]
+\[r_2 = \left(2 \cdot \frac{4}{3} \right) = r(1)=0.5\left( \frac{8}{3} \right)^3-11\left( \frac{8}{3} \right)^2+76\left( \frac{8}{3} \right) = 133.926\]
+\[r_3 = \left(3 \cdot \frac{12}{3} \right) = r(1)=0.5\left( \frac{12}{3} \right)^3-11\left( \frac{12}{3} \right)^2+76\left( \frac{12}{3} \right) = 160\]
+\[r_4 = \left(4 \cdot \frac{16}{3} \right) = r(1)=0.5\left( \frac{16}{3} \right)^3-11\left( \frac{16}{3} \right)^2+76\left( \frac{16}{3} \right) = 168.296\]
+\[A(7.5)=A(0)+ \sum_{n=0}^{4} r_n\Delta t\]
+\[A(7.5)=\Delta t \cdot (r_0 + r_1 + r_2 + r_3 + r_4)\]
+\[A(7.5)=726.914\]
+\section{Accumulation and the Definite Integral Part 2}
+\textbf{Goal}: Introduce the concept and applications of definite integrals as accumulation of quantities.\\
+\newline
+\textbf{Motivation}: Understand meaningfully how the exact accumulation of a quantity may be approximated by piece wise linear functions computed as Riemann sums.\\
+\newline
+\textbf{Theorem}: If \(r\) is integral on \([a,b]\), then it is integral on \([a,c]\) for any number \(c\) within \[[a,b]\].
+\[\int_{a}^{b}f(x)dx=\lim_{max \Delta x_i \to 0} \sum_{i=1}^{n}f(x_i^*)\Delta x_i\]
+
+
+
+Oh math, I love you math, I would've liked to have encountered you before, but I am glad we found each other right now. I can't wait to use your wisdom to extrapolate and mix mine. 
+-Damiam, Fragments
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
