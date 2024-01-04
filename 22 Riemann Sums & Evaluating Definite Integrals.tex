@@ -6,6 +6,8 @@
 \pgfplotsset{compat=1.17}
 \usepackage{graphicx} % Required for inserting
 \graphicspath{{images/}} %configuring the graphicx package
+\newcommand{\iii}{\ensuremath{\int_{a}^{b} f(q)dq}}
+\newcommand{\ii}{\ensuremath{\int_{a}^{b}}}
 
 \title{22 Riemann Sums, Evaluating Definite Integrals}
 \author{Damiam Alfaro}
@@ -63,9 +65,38 @@ Why the \(\left( 4 - \frac{5}{6} \right)\)? Because we are starting to take into
 \[A_{t2} = \frac{361}{12}\]
 \textbf{f)} Now in order to solve the integral, add the areas
 \[\int_{0}^{4} |6x-5|dx = \frac{361}{12} + \frac{25}{12} = \frac{386}{12} = \frac{193}{6}\]
+\section{Second Part: Properties of Definite Integrals}
+\textbf{Goal}: Introduce some fundamental properties of definite integrals\\
+\newline
+\textbf{Motivation}: Understand meaningfully how definite integrals depend on the interval of integration, and how combinations of functions affect them.\\
+\newline
+Let \(f\) be a piece wise continuous function on \([a,b]\)\\
+\newline
+\textbf{1)} For any number \(c\) in \([a,b]\)
+\[\int_{c}^{c}f(v)dv=0\]
+\textbf{2)} Viceversa
+\[\int_{a}^{b}f(v)dv=-\int_{b}^{a}f(v)dv\]
+\textbf{3)} For any number \(c\) in \([a,b]\)
+\[\int_{a}^{c}f(v)dv+\int_{c}^{b}f(v)dv = \int_{a}^{b}f(v)dv\]
+\textbf{4) Integral of a constant function}: \(f\) be constant on the interval \([a,b]\), \(f(x)=k\) for all \(x\) in \([a,b]\), then:
+\[A = \int_{a}^{b}kdv = k(b-a)\]
+This is the area of the rectangle we would be talking about in the example\\
+\newline
+\textbf{5) Linearity}:
+\[\int_{a}^{b}kf(v)dv= k \int_{a}^{b}f(v)dv\]\\
+\[\int_{a}^{b}k(f+g)(v)dv= \int_{a}^{b}f(v)dv + \int_{a}^{b}g(v)dv\]
+\textbf{6) Comparison}: Let \(f(r) \ge g(r)\) for all \(r\) in \([a,b]\). Then
+\[\int_{a}^{b}f(r)dr \ge \int_{a}^{b}g(r)dr\]
+\textbf{7) Bounding below and above}: Assume that \(m \ge f(z) \ge M\) for all \(z\) in \([a,b]\), then:
+\[m(b-a) \le \ii \le M(b-a)\]
+\textbf{8) Integral of zero (null) function}: Assume that \(f(t)=0\) for all \(t\) in \([a,b]\). Then:
+\[\ii = 0\]
+\textbf{9) Integral of a difference of two functions}:
+\[\int_{a}^{b}(f-g)(q)dq = \iii - \int_{a}^{b}g(r)dr\]
+\textbf{10) Integral of a linear combination of functions} (let k and l be constants)
+\[\int_{a}^{b} (kf+lg)(p)dp = k\ii f(s)ds + l\ii g(t)dt\]
 
-Math, never cease your shelter in my head. 
--Damiam, Fragments
+
 
 
 \end{document}
