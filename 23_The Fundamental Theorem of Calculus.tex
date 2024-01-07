@@ -1,0 +1,90 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\pgfplotsset{compat=1.17}
+\usepackage{graphicx} % Required for inserting
+\graphicspath{{images/}} %configuring the graphicx package
+\newcommand{\iii}{\ensuremath{\int_{a}^{b} f(q)dq}}
+\newcommand{\ii}{\ensuremath{\int_{a}^{b}}}
+
+\title{23 The Fundamental Theorem of Calculus}
+\author{Damiam Alfaro}
+\date{January 6 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{First Part: The Fundamental Theorem of Calculus}
+\textbf{Goal}: Understanding how accumulation and rate of change of a function are "measuring in opposite directions".\\
+\newline
+\textbf{Motivation}: The fundamental relation connection accumulation and rate of change provide powerful theoretical and computational tools.\\
+\newline
+\textbf{Rate of change of an Accumulated Quantity}:\\
+\newline
+Consider the rate of change function \(r_q\), for a certain quantity \(q\) as a function of another quantity, \(s\), say. Consider its accumulation function for \(s\) varying from \(a\) to \(u\):
+\[A(u) = \int_{a}^{u} r_q(s)ds\]
+The rate of change function of \(A\) should be \(r_q\) and
+\[A(u) = q(u)-q(a)\]
+\textbf{Grammatical Example}: Let \(s\) be the number of days from 1/1/2018 and \(q\) be the number of dollars in my retirement account.\\
+The accumulation function, \(A\), for \(r_q\) for \(s\) varying from \(a\) to \(u\) is the change in the number of dollars in my retirement account from day \(a\) to \(u\). It's rate of change measures the rate at which the balance of my retirement account changes, which is by definition \(r_q\).\\
+\newline
+\textbf{The Fundamental Theorem of Calculus}: Let \(f\) be continuous on \([a,b]\) and let, for any \(x\) in \([a,b]\)
+\[F(x) \int_{a}^{x} f(s)ds\]
+\begin{center}
+\begin{enumerate}
+    \item \(F'(x) = f(x)\) for all \(x\) in \([a,b]\)\\
+    \item \(G'(x) = f(x)\) for all \(x\) in \([a,b] \to \int_{a}^{x} f(s)ds = G(x) - G(a)\)
+\end{enumerate}
+\end{center}
+\textbf{Notation}
+\[F(b)-F(a) = F(x)|_{a}^{b} = F(x)]_{a}^{b} = [F(x)]_{a}^{b}\]
+\begin{enumerate}
+    \item \(\frac{d}{dx}\int_{a}^{x}f(t)dt = f(x)\)
+    \item \(\int_{a}^{b}F'(x)dx = F(b)-F(a)\)
+\end{enumerate}
+\textbf{Example of 1.} 
+\[F(x) = \int_{1}^{x}(t^2+4t-3)dt\]
+\[\frac{d}{dx}F(x) = \frac{d}{dx}\int_{1}^{x} f(t)dt = f(x)\]
+\[F'(x) = x^2+4x-3\]
+\textbf{Example of 2.}
+\[\int_{1}^{4}(x^2+1)dx\]
+\[F'(x) = (x^2+1) \to F(x) = \frac{x^3}{3}+x\]
+\[\int_{a}^{b}F'(x)dx = F(b)-F(a)\]
+\[\int_{a}^{b}F'(x)dx = \left( \frac{(4)^3}{3}+x \right) - \left( \frac{(1)^3}{3}+x \right) = 24\]
+\textbf{E.g.} Given \(f(x)\) find \(f'(x)\)
+\[f(x) = \int_{\cos{x}}^{3x}\cos{t^2}dt\]
+\textbf{(a)} both limits of integration are functions of \(x\), find a way to describe each limit as a different function for the sake of simplicity and arrange the function:
+\[r(x) = 3x \And s(x) = \cos{x}\]
+\textbf{(b)} we can facilitate using \textbf{FTC} by separating this functions into two different integrals by using integral conditions
+\[f(x) = \int_{0}^{r(x)} \cos{t^2} - \int_{0}^{s(x)} \cos{t^2}\]
+Here we are using \textbf{Property (2)}
+\[\int_{a}^{b}f(v)dv=-\int_{b}^{a}f(v)dv\]
+And \textbf{Property (c)}
+\[\int_{a}^{c}f(v)dv+\int_{c}^{b}f(v)dv = \int_{a}^{b}f(v)dv\]
+\textbf{(3)} We take the derivative of each inner function with respect to their \(x\) to solve for \(f'(x)\) using chain rule in this case:
+\[\int_{0}^{r(x)} \cos{t^2} = \cos{r(x)^2} \cdot r'(x) = \cos{3x^2} \cdot 3\]
+\[\int_{0}^{s(x)} \cos{t^2} = \cos{s(x)^2} \cdot s'(x) = \cos{\cos^2{x}} \cdot -\sin{x}\]
+\textbf{(d)} Now we put it together
+\[f'(x) = 3\cos{3x^2} + \sin{x} \cdot \cos{(\cos^2{x})}\]
+
+\section{Second Part: Average Value and Mean Value Theorem}
+\textbf{Goal}: Understanding how an arithmetic average of a finite collection of numbers can be generalized to an infinite one using integrals.\\
+\newline
+\textbf{Motivation}: The elementary concept of mean or average can be naturally extended to infinitely many numbers taking limits of Riemann Sums\\
+\newline
+\textbf{Definition}: The average value of a piece wise continuous function \(f\) on an interval \([a,b]\) is
+\[f_{ave}=\frac{1}{(b-a)}\ii f(t)dt\]
+That is \(f_{avg}\) is a number \(H\) such that:
+\[(b-a)\cdot H = \iii\]
+\textbf{Example} Compute the average value of \(f(x)=\sin{x}\) on \([0,pi]\)
+\[f_{ave}=\frac{1}{\pi-0}\int_{0}^{\pi}\sin{x}dx=\frac{1}{\pi}\cdot 2 = \frac{2}{\pi}\]
+\textbf{The Mean Value Theorem for Integrals}: Let \(f\) be continuous on \([a,b]\). Then, there is a number \(c\) in \((a,b)\) such that \(f(c)\) = \(f_{avg}\), which gives us:
+\[\iii = f(c)(b-a)\]
+
+Never stop
+-Damiam, Fragments
+
+\end{document}
